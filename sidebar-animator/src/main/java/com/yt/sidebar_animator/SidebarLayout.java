@@ -39,6 +39,18 @@ public class SidebarLayout extends RelativeLayout {
     private final float mMovingLayout = 0.8f; //layout最小的缩小距离
     private final float mMovingView = 0.5f; //view最小的缩小距离
 
+    private boolean isOnlyMove ;
+    /**
+     * @param view
+     * @param hold
+     * @param widths
+     * @param isOnlyMove 只有在边缘拉动才弹出侧滑栏
+     */
+    public void bindSidebar(View view, View hold, int widths, boolean isOnlyMove) {
+        bindSidebar(view, hold, widths);
+        this.isOnlyMove = isOnlyMove;
+    }
+
     /**
      * 绑定侧滑栏
      *
@@ -128,6 +140,10 @@ public class SidebarLayout extends RelativeLayout {
 
                 break;
             case MotionEvent.ACTION_MOVE:// 移动
+                if (isHold == false && downX >= width * 0.15&&isOnlyMove) {
+                    break;
+                }
+
                 // 获取手指移动到了哪个点的坐标
                 float movingX = event.getRawX();
                 float movingY = event.getRawY();
@@ -153,7 +169,9 @@ public class SidebarLayout extends RelativeLayout {
 
                 break;
             case MotionEvent.ACTION_UP:// 抬起
-
+                if (isHold == false && downX >= width * 0.15&&isOnlyMove) {
+                    break;
+                }
                 float y2 = event.getRawY();
                 float x2 = event.getRawX();
 

@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResumeFragments() {
         super.onResumeFragments();
         //重点来了 : 绑定侧滑栏
-        mSidebarLayout.bindSidebar(mSidebarFragment.getView(), mSidebarhold, width);  // 侧滑栏 , 侧滑栏开关 , 屏幕的宽度
+        mSidebarLayout.bindSidebar(mSidebarFragment.getView(), mSidebarhold, width,true);  // 侧滑栏 , 侧滑栏开关 , 屏幕的宽度
     }
 
     @Override
