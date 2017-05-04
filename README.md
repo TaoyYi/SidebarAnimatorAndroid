@@ -7,7 +7,7 @@
 
 ## 使用方法
 #### 添加依赖
-	compile 'com.yt:sidebar-animator:1.1.2'
+	compile 'com.yt:sidebar-animator:1.1.3'
 #### 使用
 * .xml
 	
@@ -63,6 +63,11 @@
 * 添加动画监听(1.1.2)
 	
 		public void addAnimatorListener(Animator.AnimatorListener animatorListener)
+
+* 添加4参构造方法(1.1.3)
+
+		// @param isOnlyMove 如果为true只有在边缘拉动才允许拉出侧滑栏
+		public void bindSidebar(View view, View hold, int widths, boolean isOnlyMove)
 
 ## else
 * 获取屏幕宽度的API:
